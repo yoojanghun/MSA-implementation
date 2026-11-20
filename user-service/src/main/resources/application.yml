@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: user-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/user_db
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  graphql:
+    graphiql:
+      enabled: true
+
+app:
+  rabbitmq:
+    exchange: user.exchange
+    routing-key: user.created.v1
