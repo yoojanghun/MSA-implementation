@@ -1,0 +1,23 @@
+# 유저 정보
+type User {
+    id: ID!
+    name: String!
+    email: String!
+}
+
+# 유저 생성 입력값
+input CreateUserInput {
+    name: String!
+    email: String!
+}
+
+# 데이터 조회
+type Query {
+    findUser(id: ID!): User
+    findAllUsers: [User!]!
+}
+
+# 데이터 생성/수정/삭제
+type Mutation {
+    createUser(input: CreateUserInput!): User!
+}
