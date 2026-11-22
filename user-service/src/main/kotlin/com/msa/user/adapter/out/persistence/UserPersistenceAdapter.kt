@@ -7,23 +7,23 @@ import org.springframework.stereotype.Component
 
 @Component
 class UserPersistenceAdapter(
-    private val userMongoRepository: UserMongoRepository
+    private val userRepository: UserRepository
 ) : SaveUserPort, LoadUserPort {
 
     override fun saveUser(user: User): User {
-        val userDocument = UserDocument.from(user)
-        val savedUserDocument = userMongoRepository.save(userDocument)
-        return savedUserDocument.toDomain()
+        val entity = UserEntity.from(user)
+        val savedEntity = userRepository.save(entity)
+        return savedEntity.toDomain()
     }
 
     override fun loadUser(id: String): User? {
-        return userMongoRepository.findById(id)
+        return userRepository.findById(id)
             .map { it.toDomain() }
             .orElse(null)
     }
 
     override fun loadAllUsers(): List<User> {
-        return userMongoRepository.findAll()
+        return userRepository.findAll()
             .map { it.toDomain() }
-    }
+        }
 }
