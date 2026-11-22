@@ -7,6 +7,7 @@ plugins {
 
     kotlin("jvm") version kotlinVersion apply false
     kotlin("plugin.spring") version kotlinVersion apply false
+    kotlin("plugin.jpa") version kotlinVersion apply false
     id("org.springframework.boot") version springBootVersion apply false
     id("io.spring.dependency-management") version springDependencyManagementVersion apply false
 }
@@ -23,6 +24,7 @@ allprojects {
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
+    apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
 
@@ -34,7 +36,7 @@ subprojects {
         // RabbitMQ 
         implementation("org.springframework.boot:spring-boot-starter-amqp")
 
-        // 단위/통합 테스트 공통 의존성
+        // 단위 및 통합 테스트 공통 의존성
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework.amqp:spring-rabbit-test")
         testImplementation("io.mockk:mockk:1.13.13")

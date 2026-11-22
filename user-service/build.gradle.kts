@@ -3,8 +3,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-graphql")
 
-    // MongoDB
-    implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+    // MariaDB
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.mariadb.jdbc:mariadb-java-client")
 
     // Validation
     implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -12,6 +13,6 @@ dependencies {
     // GraphQL 단위/통합 테스트
     testImplementation("org.springframework.graphql:spring-graphql-test")
 
-    // Embedded MongoDB 
-    testImplementation("de.flapdoodle.embed:de.flapdoodle.embed.mongo.spring3x:4.12.2")
+    // 인메모리 테스트용 H2 DB (로컬 테스트 시 활용)
+    testImplementation("com.h2database:h2")
 }
