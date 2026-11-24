@@ -25,6 +25,13 @@ spring:
   graphql:
     graphiql:
       enabled: true
+    cors:
+      allowed-origins: "*"
+      allowed-methods:
+        - GET
+        - POST
+        - OPTIONS
+      allowed-headers: "*"
 
 app:
   rabbitmq:
