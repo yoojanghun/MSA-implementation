@@ -30,17 +30,18 @@ subprojects {
 
     dependencies {
         // Kotlin 공통 의존성
-        implementation("org.jetbrains.kotlin:kotlin-reflect")
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+        "implementation"("org.jetbrains.kotlin:kotlin-reflect")
+        "implementation"("com.fasterxml.jackson.module:jackson-module-kotlin")
 
         // RabbitMQ 
-        implementation("org.springframework.boot:spring-boot-starter-amqp")
+        "implementation"("org.springframework.boot:spring-boot-starter-amqp")
 
         // 단위 및 통합 테스트 공통 의존성
-        testImplementation("org.springframework.boot:spring-boot-starter-test")
-        testImplementation("org.springframework.amqp:spring-rabbit-test")
-        testImplementation("io.mockk:mockk:1.13.13")
-        testImplementation("com.ninja-squad:springmockk:4.0.2")
+        "testImplementation"("org.springframework.boot:spring-boot-starter-test")
+        "testImplementation"("org.springframework.amqp:spring-rabbit-test")
+        "testImplementation"("io.mockk:mockk:1.13.13")
+        "testImplementation"("com.ninja-squad:springmockk:4.0.2")
+        "testRuntimeOnly"("org.junit.platform:junit-platform-launcher")
     }
 
     tasks.withType<KotlinCompile> {
